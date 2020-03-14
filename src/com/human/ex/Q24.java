@@ -3,6 +3,7 @@ package com.human.ex;
 public class Q24 {
 
 	public static void main(String[] args) {
+	 //산수문제 자동출제 
 	 System.out.println("산수문제를 자동으로 출제합니다");
 	 int correctCount=0;
 	 int wrongCount=0;
