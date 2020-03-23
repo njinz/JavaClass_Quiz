@@ -15,7 +15,28 @@ public class BlackjackStartby_teacher {
 	 
 	 public static Scanner sc=new Scanner(System.in);
 	 public static int deck[]=new int[52];
-	 
+	 public static void playGame() {
+		 createDeck();
+		  mixDeck();
+		  for(int i=0;i<10;i++) {
+		   getP1Card();
+		   if(getSum(p1Deck,p1Index)>21) {
+			   break;
+		   }
+		   getP2Card();
+		   if(getSum(p2Deck,p2Index)>21) {
+			   break;
+		   }
+		   if(p1Flag==false&&p2Flag==false) {
+			   System.out.println("두 플레이어가 카드 수령을 중지하였습니다.");
+			   break;
+		   }
+		   gameDisplay();
+		  }
+		  System.out.println("------------------");
+		  gameDisplay();
+		  System.out.println(whoIsWin());
+	 }
 	 public static String whoIsWin() {
 	  int p1=getSum(p1Deck,p1Index);
 	  int p2=getSum(p2Deck,p2Index);
@@ -113,7 +134,7 @@ public class BlackjackStartby_teacher {
 	 
 	 public static void getP2Card() {
 	  if(p2Flag) {
-	   System.out.println("카드 받겠습니까? 0=no,1=yes");
+	   System.out.println("P2님,카드 받겠습니까? 0=no,1=yes");
 	   if(sc.nextLine().equals("0")) {
 	    p2Flag=false;
 	   }
@@ -126,7 +147,7 @@ public class BlackjackStartby_teacher {
 	 }
 	 public static void getP1Card() {
 	  if(p1Flag) {
-	   System.out.println("카드 받겠습니까? 0=no,1=yes");
+	   System.out.println("P1님,카드 받겠습니까? 0=no,1=yes");
 	   if(sc.nextLine().equals("0")) {
 	    p1Flag=false;
 	   }
@@ -156,17 +177,30 @@ public class BlackjackStartby_teacher {
 	  }
 	 }
 	public static void main(String[] args) {
-	
-		createDeck();
-		  mixDeck();
-		  for(int i=0;i<3;i++) {
-		   getP1Card();
-		   getP2Card();
-		   gameDisplay();
-		  }
-		  System.out.println("------------------");
-		  gameDisplay();
-		  System.out.println(whoIsWin());
+		  playGame();
+		  
+		  // playGame이라는 메소드 만들어서 함수로 만들고 메인함수는 한줄만 나오게 했다. 
+		  
+//		  createDeck();
+//		  mixDeck();
+//		  for(int i=0;i<10;i++) {
+//		   getP1Card();
+//		   if(getSum(p1Deck,p1Index)>21) {
+//			   break;
+//		   }
+//		   getP2Card();
+//		   if(getSum(p2Deck,p2Index)>21) {
+//			   break;
+//		   }
+//		   if(p1Flag==false&&p2Flag==false) {
+//			   System.out.println("두 플레이어가 카드 수령을 중지하였습니다.");
+//			   break;
+//		   }
+//		   gameDisplay();
+//		  }
+//		  System.out.println("------------------");
+//		  gameDisplay();
+//		  System.out.println(whoIsWin());
 	}
 
 }
