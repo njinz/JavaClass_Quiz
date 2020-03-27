@@ -79,11 +79,35 @@ class ProductManager{
 		}
 	}
 	public void start() {
+		
+		
+		int i=0;
 		registTestData();
-		registProduct();
-		inputProduct();
-		outputProduct();
-//		searchProduct();
+		while(i!=6){
+			System.out.println("번호입력하세요 1.상품등록 2.입고 3.출고 4.상품검색 5.정보확인 6.종료");
+			i=Integer.parseInt(sc.nextLine());
+			switch(i) {
+			case 1:
+				registProduct();
+				break;
+			case 2:
+				inputProduct();
+				break;
+			case 3:
+				outputProduct();
+			case 4:
+				System.out.println("검색할 상품명을 입력하세요.");
+				String name=sc.nextLine();
+				searchProduct(name);
+				break;
+			case 5:
+				displayProduct();
+				break;
+			case 6:
+				System.out.println("종료");
+				break;
+			}
+		}
 	}
 }
 
